@@ -32,14 +32,19 @@ This project provides an automated solution for solving Peg Solitaire puzzles. I
 
 ### Running the Solver
 
-Execute the main solver script:
+Execute the main solver script (supports CLI flags):
 ```bash
-python solver.py
+python solver.py --initial-empty "0 3" --height 5 --output output.gif
 ```
+
+If `--initial-empty` is omitted the script will prompt interactively. Options:
+- `--initial-empty`, `-e`: space- or comma-separated list of empty node indices
+- `--height`, `-H`: triangular board height (small integer)
+- `--output`, `-o`: output GIF filename (default: `output.gif`)
 
 This will:
 - Solve the Peg Solitaire puzzle
-- Generate an animated GIF (`output.gif`) showing the solution steps
+- Generate an animated GIF showing the solution steps (saved to `--output`)
 
 ### Interactive Testing
 
@@ -53,6 +58,14 @@ This notebook allows you to:
 - Debug the solving algorithm
 - Visualize intermediate steps
 - Experiment with modifications
+
+### Running tests
+
+This project includes basic unit tests using `pytest`:
+```bash
+pip install -r requirements.txt
+pytest -q
+```
 
 ## How It Works
 
